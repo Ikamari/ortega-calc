@@ -9,12 +9,12 @@ export default class PointController extends Component {
                 <div className='app-centered-text app-mb10px'>Количество очков:</div>
                 <div className='app-block app-centered-content'>
                     <div
-                        className='app-arrow-button app-arrow-button-left app-purple-border'
+                        className='app-arrow-button app-arrow-button-left app-dimgray-border app-special-shadow'
                         onClick={() => editPoints(-1)}
                     />
-                    <div className='app-lh20px'>{initialPoints}</div>
+                    <div className='app-lh20px app-ml5px app-mr5px'>{initialPoints}</div>
                     <div
-                        className='app-arrow-button app-arrow-button-right app-purple-border'
+                        className='app-arrow-button app-arrow-button-right app-dimgray-border app-special-shadow'
                         onClick={() => editPoints(1)}
                     />
                 </div>

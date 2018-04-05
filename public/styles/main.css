@@ -7,7 +7,7 @@
 }
 
 .app-block-wrapper {
-    width: 250px;
+    width: 450px;
 }
 
 .app-block {
@@ -29,6 +29,14 @@
 
 .app-button:hover {
     background-color: mediumpurple;
+}
+
+/******************************************/
+/*             Calculator
+/******************************************/
+
+.app-calc-stat {
+    margin: 0 12px;
 }
 
 /******************************************/
@@ -67,12 +75,20 @@
     width: 100%;
 }
 
+.app-w100px {
+    width: 100px;
+}
+
 .app-w150px {
     width: 150px;
 }
 
 .app-w200px {
     width: 200px;
+}
+
+.app-w250px {
+    width: 250px;
 }
 
 .app-w530px {
@@ -104,7 +120,7 @@
 }
 
 .app-ml5px {
-    margin-right: 5px;
+    margin-left: 5px;
 }
 
 .app-mr5px {
@@ -129,6 +145,10 @@
 
 .app-mr20px {
     margin-right: 20px;
+}
+
+.app-mlr5px {
+    margin: 0 5px;
 }
 
 /******************************************/
@@ -177,15 +197,16 @@
 /******************************************/
 
 .app-tooltip {
-    border-bottom: 1px dotted black;
+    margin-bottom: 8px;
+    /*border-bottom: 1px dotted black;*/
     cursor: pointer;
 }
 
 .app-tooltip-text {
     position: absolute;
     visibility: hidden;
-    width: 170px;
-    margin: -30px -105px;
+    width: 130px;
+    margin: -44px -67px;
     text-align: center;
     border-radius: 6px;
     padding: 5px 10px;
@@ -268,11 +289,13 @@
     border-width: 0 5px 5px 0;
     padding: 3px;
     cursor: pointer;
+    transition-duration: 0.3s;
 }
 
 .app-arrow-button:hover {
-    opacity: 0.55;
+    border-color: orange;
 }
+
 
 .app-arrow-button-up {
     transform: rotate(-135deg);
@@ -295,14 +318,53 @@
 }
 
 /******************************************/
-/*               Colors                   */
+/*             Other - Round
 /******************************************/
+
+.app-round {
+    position: relative;
+    border: 6px solid;
+    border-radius: 32px;
+}
+
+.app-round-glass-effect::after {
+    content: '';
+    position: absolute;
+    display: block;
+    border: 1px solid transparent;
+    border-radius: 32px;
+    height: 12px;
+    width: 12px;
+    top: -7px;
+    left: -7px;
+    box-shadow: inset 0px 0 3px 1px black;
+}
+
+/******************************************/
+/*             Other - Shadow
+/******************************************/
+
+.app-small-shadow {
+    box-shadow: 0 0 5px 1px black;
+}
+
+.app-special-shadow {
+    box-shadow: inset -5px -5px 10px -4px black;
+}
+
+/******************************************/
+/*            Border - Colors
+/******************************************/
+
+.app-dimgray-border {
+    border-color: dimgray;
+}
 
 .app-green-border {
     border-color: limegreen;
 }
 
-.app-blue-border {
+.app-cyan-border {
     border-color: deepskyblue;
 }
 
@@ -312,4 +374,76 @@
 
 .app-purple-border {
     border-color: rebeccapurple;
+}
+
+.app-turquoise-border {
+    border-color: turquoise;
+}
+
+.app-indigo-border {
+    border-color: indigo;
+}
+
+.app-malachite-border {
+    border-color: #0bda51;
+}
+
+.app-gold-border {
+    border-color: gold;
+}
+
+.app-dark_blue-border {
+    border-color: darkblue;
+}
+
+.app-silver-border {
+    border-color: silver;
+}
+
+.app-carbonic-border {
+    border-color: #625D5D;
+}
+
+/******************************************/
+/*               Colors
+/******************************************/
+
+.app-red-color {
+    color: red;
+}
+
+.app-turquoise-color {
+    color: turquoise;
+}
+
+.app-indigo-color {
+    color: indigo;
+}
+
+.app-malachite-color {
+    color: #0bda51;
+}
+
+.app-gold-color {
+    color: gold;
+}
+
+.app-dark_blue-color {
+    color: darkblue;
+}
+
+.app-silver-color {
+    color: silver;
+}
+
+.app-carbonic-color {
+    color: #625D5D;
+}
+
+/******************************************/
+/*         Colors - Background
+/******************************************/
+
+.app-dimgray-background {
+    background-color: dimgray;
 }

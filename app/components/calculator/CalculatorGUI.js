@@ -1,22 +1,22 @@
 // React
-import React from 'react';
+import React from 'react'
 // Components
 import PointController from './PointController'
 
-const statElement = (increment, decrement, statName, statPoints, color, tip) => {
+const statElement = (increment, decrement, statName, statPoints, color, tip, nameAsRound = false) => {
     return (
-        <div className='app-block app-centered-flex-column' key={`calc-stat-element-${statName}`}>
+        <div className='app-block app-centered-flex-column app-calc-stat' key={`calc-stat-element-${statName}`}>
             <div className='app-text-uppercase app-tooltip'>
-                {statName}
+                {nameAsRound ? <div className={`app-round app-${color}-border app-small-shadow app-round-glass-effect`} /> : statName}
                 <span className='app-tooltip-text'>{tip}</span>
             </div>
             <div
-                className={`app-arrow-button app-arrow-button-up app-${color}-border app-mt10px`}
+                className={`app-arrow-button app-arrow-button-up app-dimgray-border app-mt10px app-special-shadow`}
                 onClick={() => increment(statName)}
             />
             <div>{statPoints}</div>
             <div
-                className={`app-arrow-button app-arrow-button-down app-${color}-border app-mb10px`}
+                className={`app-arrow-button app-arrow-button-down app-dimgray-border app-mb10px app-special-shadow`}
                 onClick={() => decrement(statName)}
             />
         </div>
@@ -30,18 +30,20 @@ const CalculatorGUI = (props) => {
     delete stats.used
 
     return (
-        <div className='app-block-wrapper app-centered app-sharp-border app-horizontal-border app-mt20px app-mb20px app-p5px'>
+        <div className='app-block-wrapper app-centered app-horizontal-border app-mt20px app-mb20px app-p5px'>
             <div className='app-centered-text app-text-bold app-mb10px'>{statsData.label}</div>
             <div className='app-block app-justified-content'>
                 {Object.keys(stats).map((stat, num) => (
-                    statElement(increment, decrement, stat, stats[stat], statsData.color[num], statsData.statLabel[num])
+                    statElement(increment, decrement, stat, stats[stat], statsData.color[num], statsData.statLabel[num], statsData.nameAsRound)
                 ))}
             </div>
             <div className='app-centered-text'>
                 Нераспределенные очки: {initialPoints - usedPoints}<br/>
             </div>
-            <div className='app-button app-mt10px app-mb10px' onClick={() => resetStatPoints()}>Сбросить статы</div>
-            <div className='app-button app-mb10px' onClick={() => restorePoints()}>Сбросить очки</div>
+            <div className='app-block app-centered-content app-mt10px app-mb10px'>
+                <div className='app-button app-w150px app-mlr5px app-dimgray-background' onClick={() => resetStatPoints()}>Сбросить статы</div>
+                <div className='app-button app-w150px app-mlr5px app-dimgray-background' onClick={() => restorePoints()}>Сбросить очки</div>
+            </div>
             <PointController
                 initialPoints={initialPoints}
                 editPoints={(value) => editPoints(value)}
