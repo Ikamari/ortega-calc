@@ -1,0 +1,315 @@
+/******************************************/
+/*                Main                    */
+/******************************************/
+
+.app {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.app-block-wrapper {
+    width: 250px;
+}
+
+.app-block {
+    display: flex;
+}
+
+.app-block-inline {
+    display: inline-flex;
+}
+
+.app-button {
+    display: block;
+    height: 25px;
+    text-align: center;
+    background-color: rebeccapurple;
+    color: white;
+    cursor: pointer;
+}
+
+.app-button:hover {
+    background-color: mediumpurple;
+}
+
+/******************************************/
+/*              Positioning               */
+/******************************************/
+
+.app-centered {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.app-centered-flex-column {
+    flex-direction: column;
+    align-items: center;
+}
+
+.app-centered-content {
+    justify-content: center;
+}
+
+.app-justified-content {
+    justify-content: space-around;
+}
+
+.app-centered-text {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+/******************************************/
+/*                Size                    */
+/******************************************/
+
+.app-w100per {
+    width: 100%;
+}
+
+.app-w150px {
+    width: 150px;
+}
+
+.app-w200px {
+    width: 200px;
+}
+
+.app-w530px {
+    width: 530px;
+}
+
+/******************************************/
+/*               Paddings                 */
+/******************************************/
+
+.app-p5px {
+    padding: 5px;
+}
+
+/******************************************/
+/*               Margins                  */
+/******************************************/
+
+.app-ml6px {
+    margin-left: 6px;
+}
+
+.app-mt5px {
+    margin-top: 5px;
+}
+
+.app-mb5px {
+    margin-bottom: 5px;
+}
+
+.app-ml5px {
+    margin-right: 5px;
+}
+
+.app-mr5px {
+    margin-right: 5px;
+}
+
+.app-mt10px {
+    margin-top: 10px;
+}
+
+.app-mb10px {
+    margin-bottom: 10px;
+}
+
+.app-mt20px {
+    margin-top: 20px;
+}
+
+.app-mb20px {
+    margin-bottom: 20px;
+}
+
+.app-mr20px {
+    margin-right: 20px;
+}
+
+/******************************************/
+/*                  Text                  */
+/******************************************/
+
+.app-lh20px {
+    line-height: 20px;
+}
+
+.app-text-uppercase {
+    text-transform: uppercase;
+}
+
+.app-text-bold {
+    font-weight: bold;
+}
+
+.app-text-start-uppercase {
+    text-transform: capitalize;
+}
+
+.app-font-consolas {
+    font-family: Consolas, 'serif';
+}
+
+/******************************************/
+/*               Blocks                   */
+/******************************************/
+
+.app-sharp-border {
+    border: 3px solid rebeccapurple;
+    border-radius: 5px;
+}
+
+.app-vertical-border {
+    border-width: 0 3px;
+}
+
+.app-horizontal-border {
+    border-width: 3px 0;
+}
+
+/******************************************/
+/*               Tool tip                 */
+/******************************************/
+
+.app-tooltip {
+    border-bottom: 1px dotted black;
+    cursor: pointer;
+}
+
+.app-tooltip-text {
+    position: absolute;
+    visibility: hidden;
+    width: 170px;
+    margin: -30px -105px;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 10px;
+    background-color: rgba(102, 51, 153, 0.85);
+    color: white;
+    z-index: 1;
+}
+
+.app-tooltip:hover .app-tooltip-text {
+    visibility: visible;
+}
+
+/******************************************/
+/*            Radio buttons               */
+/******************************************/
+
+
+.app-radio-button {
+    position: relative;
+    padding-left: 40px;
+    cursor: pointer;
+    font-size: 16px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.app-radio-button input {
+    position: absolute;
+    opacity: 0;
+}
+
+.app-radio-button span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.app-radio-button:hover input ~ span {
+    background-color: #ccc;
+}
+
+.app-radio-button input:checked ~ span {
+    background-color: rebeccapurple;
+}
+
+.app-radio-button span:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.app-radio-button input:checked ~ .span:after {
+    display: block;
+}
+
+.app-radio-button span:after {
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+}
+
+/******************************************/
+/*               Arrows                   */
+/******************************************/
+
+.app-arrow-button {
+    width: 10px;
+    height: 10px;
+    border: solid black;
+    border-width: 0 5px 5px 0;
+    padding: 3px;
+    cursor: pointer;
+}
+
+.app-arrow-button:hover {
+    opacity: 0.55;
+}
+
+.app-arrow-button-up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+
+.app-arrow-button-down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+.app-arrow-button-left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+
+.app-arrow-button-right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+/******************************************/
+/*               Colors                   */
+/******************************************/
+
+.app-green-border {
+    border-color: limegreen;
+}
+
+.app-blue-border {
+    border-color: deepskyblue;
+}
+
+.app-red-border {
+    border-color: red;
+}
+
+.app-purple-border {
+    border-color: rebeccapurple;
+}
