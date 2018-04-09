@@ -2,6 +2,11 @@
 /*                Main                    */
 /******************************************/
 
+@font-face {
+    font-family: Digital;
+    src: url(../fonts/Digital.otf);
+}
+
 .app {
     font-family: "Comic Sans MS", cursive, sans-serif;
 }
@@ -37,6 +42,33 @@
 
 .app-calc-stat {
     margin: 0 12px;
+}
+
+.app-calc-digit-block {
+    display: flex;
+    width: 36px;
+    height: 36px;
+    border: 2px solid black;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-calc-digit-wrapper {
+    position: relative;
+    top: 2px;
+    width: 16px;
+    text-align: right;
+    font-family: Digital;
+    font-size: 36px;
+}
+
+.app-calc-digit-background {
+    position: absolute;
+    color: lightgray;
+    z-index: -1;
+}
+
+.app-calc-digit {
 }
 
 /******************************************/
@@ -198,7 +230,7 @@
 
 .app-tooltip {
     margin-bottom: 8px;
-    /*border-bottom: 1px dotted black;*/
+    padding: 8px;
     cursor: pointer;
 }
 
@@ -213,10 +245,13 @@
     background-color: rgba(102, 51, 153, 0.85);
     color: white;
     z-index: 1;
+    opacity: 0;
+    transition-duration: 0.3s;
 }
 
 .app-tooltip:hover .app-tooltip-text {
     visibility: visible;
+    opacity: 1;
 }
 
 /******************************************/
@@ -323,7 +358,7 @@
 
 .app-round {
     position: relative;
-    border: 6px solid;
+    border: 8px solid;
     border-radius: 32px;
 }
 
@@ -333,11 +368,11 @@
     display: block;
     border: 1px solid transparent;
     border-radius: 32px;
-    height: 12px;
-    width: 12px;
-    top: -7px;
-    left: -7px;
-    box-shadow: inset 0px 0 3px 1px black;
+    height: 16px;
+    width: 16px;
+    top: -9px;
+    left: -9px;
+    box-shadow: inset 0px 0 6px 0px black;
 }
 
 /******************************************/
@@ -345,7 +380,7 @@
 /******************************************/
 
 .app-small-shadow {
-    box-shadow: 0 0 5px 1px black;
+    box-shadow: 0 0 9px 1px;
 }
 
 .app-special-shadow {
@@ -353,7 +388,7 @@
 }
 
 /******************************************/
-/*            Border - Colors
+/*            Colors - Border
 /******************************************/
 
 .app-dimgray-border {
@@ -405,6 +440,14 @@
 }
 
 /******************************************/
+/*         Colors - Background
+/******************************************/
+
+.app-dimgray-background {
+    background-color: dimgray;
+}
+
+/******************************************/
 /*               Colors
 /******************************************/
 
@@ -440,10 +483,3 @@
     color: #625D5D;
 }
 
-/******************************************/
-/*         Colors - Background
-/******************************************/
-
-.app-dimgray-background {
-    background-color: dimgray;
-}
