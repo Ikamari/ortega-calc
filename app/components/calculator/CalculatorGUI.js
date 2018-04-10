@@ -16,11 +16,11 @@ const statElement = (increment, decrement, statName, statPoints, color, tip, nam
             />
             <div className='app-calc-digit-block'>
                 <div className='app-calc-digit-wrapper'>
-                    <div className='app-calc-digit-background'>8</div>
+                    <div className='app-calc-digit-background'>@</div>
                     <div className='app-calc-digit'>{String((statPoints % 100) / 10)[0]}</div>
                 </div>
                 <div className='app-calc-digit-wrapper'>
-                    <div className='app-calc-digit-background'>8</div>
+                    <div className='app-calc-digit-background'>@</div>
                     <div className='app-calc-digit'>{statPoints % 10}</div>
                 </div>
             </div>

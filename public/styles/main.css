@@ -4,7 +4,12 @@
 
 @font-face {
     font-family: Digital;
-    src: url(../fonts/Digital.otf);
+    src: url(../fonts/Digital.ttf);
+}
+
+@font-face {
+    font-family: Digital2;
+    src: url(../fonts/Digital2.otf);
 }
 
 .app {
@@ -41,34 +46,38 @@
 /******************************************/
 
 .app-calc-stat {
-    margin: 0 12px;
+    margin: 0 4px;
 }
 
 .app-calc-digit-block {
     display: flex;
-    width: 36px;
+    width: 50px;
     height: 36px;
-    border: 2px solid black;
     justify-content: center;
     align-items: center;
+    border: 2px solid black;
+    background-color: black;
+    z-index: -2;
 }
 
 .app-calc-digit-wrapper {
     position: relative;
-    top: 2px;
-    width: 16px;
+    top: 1px;
+    left: 1px;
     text-align: right;
     font-family: Digital;
-    font-size: 36px;
+    font-size: 30px;
 }
 
 .app-calc-digit-background {
     position: absolute;
-    color: lightgray;
+    color: #404040;
     z-index: -1;
 }
 
 .app-calc-digit {
+    color: skyblue;
+    text-shadow: 1px 1px 2px skyblue;
 }
 
 /******************************************/
