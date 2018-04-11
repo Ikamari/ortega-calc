@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 // Components
 import StatPointsController from './stats/StatPointsController'
 import StatsController from './stats/StatsController'
+import TideStatsStatus from './tide/TideStatsStatus'
 
 export default class Calculator extends Component {
     constructor(props){
@@ -78,12 +79,16 @@ export default class Calculator extends Component {
                     stats={this.state}
                     statsData={this.props.statsData}
                 />
+                <TideStatsStatus
+                    stats={this.state}
+                    statsData={this.props.statsData}
+                />
                 <StatPointsController
-                    initialPoints = {this.props.getPoints()}
-                    usedPoints = {this.state.used}
-                    editPoints = {(value) => this.props.editPoints(value)}
-                    restorePoints = {() => this.props.restorePoints()}
-                    resetStatPoints = {() => this.resetStatPoints()}
+                    initialPoints={this.props.getPoints()}
+                    usedPoints={this.state.used}
+                    editPoints={(value) => this.props.editPoints(value)}
+                    restorePoints={() => this.props.restorePoints()}
+                    resetStatPoints={() => this.resetStatPoints()}
                 />
             </div>
         )

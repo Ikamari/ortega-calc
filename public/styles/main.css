@@ -17,7 +17,7 @@
 }
 
 .app-block-wrapper {
-    width: 450px;
+    /*width: 450px;*/
 }
 
 .app-block {
@@ -78,6 +78,18 @@
 .app-calc-digit {
     color: skyblue;
     text-shadow: 1px 1px 2px skyblue;
+}
+
+.app-tide-status-active {
+    color: limegreen;
+}
+
+.app-tide-status-unactive {
+    color: white;
+}
+
+.app-tide-status-error {
+    color: firebrick;
 }
 
 /******************************************/

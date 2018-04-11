@@ -13,7 +13,7 @@ export default  class App extends Component {
 
         this.state = {
             initialTidePoints: 0,
-            tidePoints: 0
+            tidePoints: 30
         }
     }
 
