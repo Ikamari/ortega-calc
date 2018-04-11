@@ -14,6 +14,7 @@
   },
   "homepage": "https://github.com/Ikamari/ortega-calc#readme",
   "dependencies": {
+    "prop-types": "^15.6.1",
     "react": "^16.3.1",
     "react-dom": "^16.3.1"
   },

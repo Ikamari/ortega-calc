@@ -4,6 +4,8 @@ import React, { Component } from 'react';
 import Calculator from './components/calculator/Calculator'
 // Calculator stats
 import TideStats from './calculator/stats/TideStats'
+// Calculator prices
+import CommonPrices from './calculator/prices/CommonPrices'
 
 export default  class App extends Component {
     constructor(props) {
@@ -49,6 +51,7 @@ export default  class App extends Component {
                         editPoints={(value) => this.editPoints('tide', value)}
                         restorePoints={() => this.restorePoints('tide')}
                         sendStats={(stats) => this.sendStats(stats)}
+                        prices={CommonPrices}
                     />
                 </div>
             </div>
