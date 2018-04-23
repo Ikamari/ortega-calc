@@ -12,8 +12,8 @@ export default class StatsController extends Component {
         delete stats.used
 
         return (
-            <div className='app-block-wrapper app-centered app-horizontal-border app-mt20px app-mb20px app-p5px'>
-                <div className='app-centered-text app-text-bold app-mb10px'>{statsData.label}</div>
+            <div className='app-tide-calc app-block-wrapper app-centered app-mt20px app-pl5px app-pr5px'>
+                <div className='app-centered-text app-text-bold app-mb10px app-mt10px'>{statsData.label}</div>
                 <div className='app-block app-justified-content'>
                     {Object.keys(stats).map((stat, num) => (
                         <StatElement

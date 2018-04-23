@@ -55,8 +55,7 @@ export default class TideStatsStatus extends Component {
         const statuses = this.checkTideStats(this.getMaxTideStats())
 
         return (
-            <div className='app-block-wrapper app-centered app-horizontal-border app-mt20px app-mb20px app-p5px'>
-                <div className='app-centered-text app-text-bold app-mb10px'>Доминирующие потоки</div>
+            <div className='app-tide-status app-block-wrapper app-centered app-pl5px app-pr5px app-pb5px'>
                 <div className='app-block app-justified-content'>
                     {Object.keys(stats).map((stat, num) => (
                         <TideStatElement
@@ -66,6 +65,7 @@ export default class TideStatsStatus extends Component {
                         />
                     ))}
                 </div>
+                {/*<div className='app-centered-text app-text-bold app-mt10px app-mb5px'>Доминирующие потоки</div>*/}
             </div>
         )
     }

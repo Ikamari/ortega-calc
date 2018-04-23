@@ -33,7 +33,7 @@ export default class StatElement extends Component {
     render() {
         const { increment, decrement, statName } = this.props
         return (
-            <div className='app-block app-centered-flex-column app-calc-stat'>
+            <div className='app-tide-calc-element app-block app-centered-flex-column app-calc-stat'>
                 {this.drawName()}
                 <div
                     className={`app-arrow-button app-arrow-button-up app-dimgray-border app-mt10px app-special-shadow`}

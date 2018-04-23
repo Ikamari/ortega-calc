@@ -46,7 +46,8 @@
 /******************************************/
 
 .app-calc-stat {
-    margin: 0 4px;
+    width: 60px;
+    margin: 0 1px;
 }
 
 .app-calc-digit-block {
@@ -69,6 +70,14 @@
     font-size: 30px;
 }
 
+.app-calc-background {
+
+}
+
+.app-calc-stat-background {
+
+}
+
 .app-calc-digit-background {
     position: absolute;
     color: #404040;
@@ -82,14 +91,41 @@
 
 .app-tide-status-active {
     color: limegreen;
+    transition-duration: 0.3s;
 }
 
 .app-tide-status-unactive {
     color: white;
+    transition-duration: 0.3s;
 }
 
 .app-tide-status-error {
     color: firebrick;
+    transition-duration: 0.3s;
+}
+
+/******************************************/
+/*             Calculator
+/******************************************/
+
+.app-tide-calc {
+    border: 3px solid black;
+    border-bottom: 0;
+}
+
+.app-tide-calc-element {
+    border: 3px solid black;
+    border-bottom: 0;
+}
+
+.app-tide-status {
+    border: 3px solid black;
+    border-top: 0;
+}
+
+.app-tide-status-element {
+    border: 3px solid black;
+    border-top: 0;
 }
 
 /******************************************/
@@ -154,6 +190,18 @@
 
 .app-p5px {
     padding: 5px;
+}
+
+.app-pl5px {
+    padding-left: 5px;
+}
+
+.app-pr5px {
+    padding-right: 5px;
+}
+
+.app-pb5px {
+    padding-bottom: 5px;
 }
 
 /******************************************/
