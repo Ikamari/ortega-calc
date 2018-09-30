@@ -4,17 +4,34 @@ import PropTypes from 'prop-types'
 
 export default class StatElement extends Component {
 
-    drawName() {
-        const { statName, color, tip, nameAsRound } = this.props
+    renderRound() {
+        const { statName, characteristics } = this.props
+        const color = characteristics.stats[statName].color
+        return (
+            <div className={`app-round app-${color}-border app-${color}-color app-small-shadow app-round-glass-effect`} />
+        )
+    }
+
+    renderTip() {
+        const { statName, characteristics } = this.props
+        return (
+            <span className='app-tooltip-text'>
+                {characteristics.stats[statName].tip}
+            </span>
+        )
+    }
+
+    renderLabel() {
+        const { statName, characteristics } = this.props
         return (
             <div className='app-text-uppercase app-tooltip'>
-                {nameAsRound ? <div className={`app-round app-${color}-border app-${color}-color app-small-shadow app-round-glass-effect`} /> : statName}
-                {tip ? <span className='app-tooltip-text'>{tip}</span> : null}
+                {characteristics.renderLabelAsRound ?  this.renderRound() : characteristics.stats[statName].label}
+                {characteristics.renderTips         ?  this.renderTip()   : null}
             </div>
         )
     }
 
-    drawNumber() {
+    renderPoints() {
         const { statPoints } = this.props
         return (
             <div className='app-calc-digit-block'>
@@ -34,12 +51,12 @@ export default class StatElement extends Component {
         const { increment, decrement, statName } = this.props
         return (
             <div className='app-tide-calc-element app-block app-centered-flex-column app-calc-stat'>
-                {this.drawName()}
+                {this.renderLabel()}
                 <div
                     className={`app-arrow-button app-arrow-button-up app-dimgray-border app-mt10px app-special-shadow`}
                     onClick={() => increment(statName)}
                 />
-                {this.drawNumber()}
+                {this.renderPoints()}
                 <div
                     className={`app-arrow-button app-arrow-button-down app-dimgray-border app-mb10px app-special-shadow`}
                     onClick={() => decrement(statName)}
@@ -51,18 +68,9 @@ export default class StatElement extends Component {
 }
 
 StatElement.propTypes = {
-    increment: PropTypes.func.isRequired,
-    decrement: PropTypes.func.isRequired,
-    statName: PropTypes.string,
-    statPoints: PropTypes.number.isRequired,
-    color: PropTypes.string,
-    tip: PropTypes.string,
-    nameAsRound: PropTypes.bool
-}
-
-StatElement.defaultProps = {
-    statName: '',
-    color: 'white',
-    tip: '',
-    nameAsRound: false
+    statName:        PropTypes.string.isRequired,
+    statPoints:      PropTypes.number.isRequired,
+    characteristics: PropTypes.object.isRequired,
+    increment:       PropTypes.func.isRequired,
+    decrement:       PropTypes.func.isRequired,
 }

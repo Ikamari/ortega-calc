@@ -18,12 +18,12 @@ export default class StatPointsController extends Component {
                 <div className='app-block app-centered-content'>
                     <div
                         className='app-arrow-button app-arrow-button-left app-dimgray-border app-special-shadow'
-                        onClick={() => editPoints(-1)}
+                        onClick={() => editPoints(initialPoints - 1)}
                     />
                     <div className='app-lh20px app-ml5px app-mr5px'>{initialPoints}</div>
                     <div
                         className='app-arrow-button app-arrow-button-right app-dimgray-border app-special-shadow'
-                        onClick={() => editPoints(1)}
+                        onClick={() => editPoints(initialPoints + 1)}
                     />
                 </div>
             </div>
@@ -32,9 +32,9 @@ export default class StatPointsController extends Component {
 }
 
 StatPointsController.propTypes = {
-    initialPoints: PropTypes.number.isRequired,
-    usedPoints: PropTypes.number.isRequired,
-    editPoints: PropTypes.func.isRequired,
-    restorePoints: PropTypes.func.isRequired,
+    initialPoints:   PropTypes.number.isRequired,
+    usedPoints:      PropTypes.number.isRequired,
+    editPoints:      PropTypes.func.isRequired,
+    restorePoints:   PropTypes.func.isRequired,
     resetStatPoints: PropTypes.func.isRequired
 }

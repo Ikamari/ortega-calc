@@ -1,10 +1,9 @@
 // React
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 // Components
-import StatPointsController from './stats/StatPointsController'
-import StatsController from './stats/StatsController'
-import TideStatsStatus from './tide/TideStatsStatus'
+import GUI from './CalculatorGUI'
+// Helpers
+import calculatePrice from '../../helpers/StatPointPriceCalculator'
 
 export default class Calculator extends Component {
     constructor(props){
@@ -32,7 +31,6 @@ export default class Calculator extends Component {
     }
 
     decrementStatPoint(stat) {
-        const { prices: calculatePrice } = this.props
         const statPoints = this.state[stat]
         if (statPoints > 1) {
             const usedPoints = this.state.used
@@ -45,7 +43,6 @@ export default class Calculator extends Component {
     }
 
     incrementStatPoint(stat) {
-        const { prices: calculatePrice } = this.props
         const statPoints = this.state[stat]
         const usedPoints = this.state.used
         const initialPoints = this.props.getPoints()
@@ -65,7 +62,7 @@ export default class Calculator extends Component {
         statNames.map((stat) => {stats[stat] = 1})
 
         this.setState({
-            used: this.props.statsData.elements,
+            used: 4,
             ...stats
         })
     }
@@ -73,33 +70,17 @@ export default class Calculator extends Component {
     render() {
         return(
             <div className='app-ml5px app-mr5px'>
-                <StatsController
-                    increment={(statName) => this.incrementStatPoint(statName)}
-                    decrement={(statName) => this.decrementStatPoint(statName)}
+                <GUI
                     stats={this.state}
                     statsData={this.props.statsData}
-                />
-                <TideStatsStatus
-                    stats={this.state}
-                    statsData={this.props.statsData}
-                />
-                <StatPointsController
                     initialPoints={this.props.getPoints()}
-                    usedPoints={this.state.used}
                     editPoints={(value) => this.props.editPoints(value)}
                     restorePoints={() => this.props.restorePoints()}
                     resetStatPoints={() => this.resetStatPoints()}
+                    increment={(statName) => this.incrementStatPoint(statName)}
+                    decrement={(statName) => this.decrementStatPoint(statName)}
                 />
             </div>
         )
     }
-}
-
-Calculator.propTypes = {
-    statsData: PropTypes.object.isRequired,
-    getPoints: PropTypes.func.isRequired,
-    editPoints: PropTypes.func.isRequired,
-    restorePoints: PropTypes.func.isRequired,
-    sendStats: PropTypes.func.isRequired,
-    prices: PropTypes.func.isRequired
 }
