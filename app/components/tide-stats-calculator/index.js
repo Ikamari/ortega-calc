@@ -1,2 +1,2 @@
-export {default as TideStatElement} from './TideStatElement'
-export {default as TideStatsStatus} from './TideStatsStatus'
+export {default as TideStatElement}     from './StatElement'
+export {default as TideStatsController} from './StatsController'

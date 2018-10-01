@@ -1,8 +1,12 @@
+// Prices
 import CommonPrices from '../stat-prices/CommonPrices'
+// Stats controller
+import StatsController from '../../components/calculator/StatsController'
 
 export default {
     name:  'core',
     getPrice: CommonPrices,
+    statsController: StatsController,
     label: 'Характеристики',
     initialPoints:       14,
     initialPointsPerStat: 3,

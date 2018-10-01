@@ -1,8 +1,12 @@
+// Prices
 import CommonPrices from "../stat-prices/CommonPrices";
+// Stats controller
+import TideStatsController from '../../components/tide-stats-calculator/StatsController'
 
 export default {
     name:  'tide',
     getPrice: CommonPrices,
+    statsController: TideStatsController,
     label: 'Потоки',
     initialPoints: 30,
     initialPointsPerStat: 1,

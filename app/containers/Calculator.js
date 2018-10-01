@@ -3,8 +3,6 @@ import React, { Component } from 'react'
 import PropTypes            from 'prop-types'
 // Components
 import StatPointsController from '../components/calculator/StatPointsController'
-import StatsController      from '../components/calculator/StatsController'
-// import TideStatsStatus      from '../components/tide-stats-calculator/TideStatsStatus'
 
 export default class Calculator extends Component {
     constructor(props){
@@ -76,6 +74,7 @@ export default class Calculator extends Component {
     }
 
     render() {
+        const StatsController = this.characteristics.statsController
         return(
             <div className='app-ml5px app-mr5px'>
                 <StatsController
@@ -84,10 +83,6 @@ export default class Calculator extends Component {
                     characteristics = {this.props.characteristics}
                     statsPoints     = {this.state.stats}
                 />
-                {/*<TideStatsStatus*/}
-                    {/*stats     = {this.state}*/}
-                    {/*statsData = {this.props.statsData}*/}
-                {/*/>*/}
                 <StatPointsController
                     initialPoints   = {this.state.points}
                     usedPoints      = {this.state.usedPoints}

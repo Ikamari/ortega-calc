@@ -47,20 +47,33 @@ export default class StatElement extends Component {
         )
     }
 
+    renderIncrementButton() {
+        const { increment, statName } = this.props
+        return (
+            <div
+                className={`app-arrow-button app-arrow-button-up app-dimgray-border app-mt10px app-special-shadow`}
+                onClick={() => increment(statName)}
+            />
+        )
+    }
+
+    renderDecrementButton() {
+        const { decrement, statName } = this.props
+        return (
+            <div
+                className={`app-arrow-button app-arrow-button-down app-dimgray-border app-mb10px app-special-shadow`}
+                onClick={() => decrement(statName)}
+            />
+        )
+    }
+
     render() {
-        const { increment, decrement, statName } = this.props
         return (
             <div className='app-tide-calc-element app-block app-centered-flex-column app-calc-stat'>
                 {this.renderLabel()}
-                <div
-                    className={`app-arrow-button app-arrow-button-up app-dimgray-border app-mt10px app-special-shadow`}
-                    onClick={() => increment(statName)}
-                />
+                {this.renderIncrementButton()}
                 {this.renderPoints()}
-                <div
-                    className={`app-arrow-button app-arrow-button-down app-dimgray-border app-mb10px app-special-shadow`}
-                    onClick={() => decrement(statName)}
-                />
+                {this.renderDecrementButton()}
             </div>
         )
     }
