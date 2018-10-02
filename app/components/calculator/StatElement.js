@@ -1,6 +1,11 @@
 // React
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import PropTypes            from 'prop-types'
+// Styles
+import appStyles    from '../../App.css'
+import styles       from './styles/stat-element.css'
+import colors       from '../styles/colors.css'
+import borderColors from '../styles/border-colors.css'
 
 export default class StatElement extends Component {
 
@@ -8,14 +13,14 @@ export default class StatElement extends Component {
         const { statName, characteristics } = this.props
         const color = characteristics.stats[statName].color
         return (
-            <div className={`app-round app-${color}-border app-${color}-color app-small-shadow app-round-glass-effect`} />
+            <div className={`${styles.round} ${colors[color]} ${borderColors[color]}`} />
         )
     }
 
     renderTip() {
         const { statName, characteristics } = this.props
         return (
-            <span className='app-tooltip-text'>
+            <span className={styles.tip}>
                 {characteristics.stats[statName].tip}
             </span>
         )
@@ -24,7 +29,7 @@ export default class StatElement extends Component {
     renderLabel() {
         const { statName, characteristics } = this.props
         return (
-            <div className='app-text-uppercase app-tooltip'>
+            <div className={styles.label}>
                 {characteristics.renderLabelAsRound ?  this.renderRound() : characteristics.stats[statName].label}
                 {characteristics.renderTips         ?  this.renderTip()   : null}
             </div>
@@ -34,14 +39,10 @@ export default class StatElement extends Component {
     renderPoints() {
         const { statPoints } = this.props
         return (
-            <div className='app-calc-digit-block'>
-                <div className='app-calc-digit-wrapper'>
-                    <div className='app-calc-digit-background'>@</div>
-                    <div className='app-calc-digit'>{String((statPoints % 100) / 10)[0]}</div>
-                </div>
-                <div className='app-calc-digit-wrapper'>
-                    <div className='app-calc-digit-background'>@</div>
-                    <div className='app-calc-digit'>{statPoints % 10}</div>
+            <div className={styles['amount-wrapper']}>
+                <div className={styles.amount}>
+                    {String((statPoints % 100) / 10)[0]}
+                    {statPoints % 10}
                 </div>
             </div>
         )
@@ -50,8 +51,9 @@ export default class StatElement extends Component {
     renderIncrementButton() {
         const { increment, statName } = this.props
         return (
-            <div
-                className={`app-arrow-button app-arrow-button-up app-dimgray-border app-mt10px app-special-shadow`}
+            <button
+                type='button'
+                className={`${appStyles['arrow-button-up']} ${styles['increment-button']}`}
                 onClick={() => increment(statName)}
             />
         )
@@ -60,8 +62,9 @@ export default class StatElement extends Component {
     renderDecrementButton() {
         const { decrement, statName } = this.props
         return (
-            <div
-                className={`app-arrow-button app-arrow-button-down app-dimgray-border app-mb10px app-special-shadow`}
+            <button
+                type='button'
+                className={`${appStyles['arrow-button-down']} ${styles['decrement-button']}`}
                 onClick={() => decrement(statName)}
             />
         )
@@ -69,7 +72,7 @@ export default class StatElement extends Component {
 
     render() {
         return (
-            <div className='app-tide-calc-element app-block app-centered-flex-column app-calc-stat'>
+            <div className={styles.wrapper}>
                 {this.renderLabel()}
                 {this.renderIncrementButton()}
                 {this.renderPoints()}

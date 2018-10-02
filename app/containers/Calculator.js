@@ -3,6 +3,8 @@ import React, { Component } from 'react'
 import PropTypes            from 'prop-types'
 // Components
 import StatPointsController from '../components/calculator/StatPointsController'
+// Styles
+import styles               from '../App.css'
 
 export default class Calculator extends Component {
     constructor(props){
@@ -76,7 +78,7 @@ export default class Calculator extends Component {
     render() {
         const StatsController = this.characteristics.statsController
         return(
-            <div className='app-ml5px app-mr5px'>
+            <div className={styles.calculator}>
                 <StatsController
                     increment       = {(statName) => this.incrementStatPoint(statName)}
                     decrement       = {(statName) => this.decrementStatPoint(statName)}

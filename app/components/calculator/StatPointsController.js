@@ -1,30 +1,38 @@
 // React
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import PropTypes            from 'prop-types'
+// Styles
+import appStyles from '../../App.css'
+import styles    from './styles/stat-points-controller.css'
 
 export default class StatPointsController extends Component {
     render() {
         const { initialPoints, usedPoints, editPoints, restorePoints, resetStatPoints} = this.props
         return(
-            <div className='app-block-wrapper app-centered app-mb5px'>
-                <div className='app-centered-text'>
-                    Нераспределенные очки: {initialPoints - usedPoints}<br/>
+            <div className={styles.wrapper}>
+                <div className={styles['available-points-wrapper']}>
+                    <div className={styles['available-points-label']}>Нераспределенные очки:</div>
+                    <div className={styles['points-amount-wrapper']}>{initialPoints - usedPoints}</div>
                 </div>
-                <div className='app-block app-centered-content app-mt10px app-mb10px'>
-                    <div className='app-button app-w150px app-mlr5px app-dimgray-background' onClick={() => resetStatPoints()}>Сбросить статы</div>
-                    <div className='app-button app-w150px app-mlr5px app-dimgray-background' onClick={() => restorePoints()}>Сбросить очки</div>
+                <div className={styles['points-change-wrapper']}>
+                    <div className={styles['points-change-label']}>Количество очков:</div>
+                    <div className={styles['points-amount-wrapper']}>
+                        <button
+                            type='button'
+                            className={appStyles['arrow-button-left']}
+                            onClick={() => editPoints(initialPoints - 1)}
+                        />
+                        <div className={styles['points-amount']}>{initialPoints}</div>
+                        <button
+                            type='button'
+                            className={appStyles['arrow-button-right']}
+                            onClick={() => editPoints(initialPoints + 1)}
+                        />
+                    </div>
                 </div>
-                <div className='app-centered-text app-mb10px'>Количество очков:</div>
-                <div className='app-block app-centered-content'>
-                    <div
-                        className='app-arrow-button app-arrow-button-left app-dimgray-border app-special-shadow'
-                        onClick={() => editPoints(initialPoints - 1)}
-                    />
-                    <div className='app-lh20px app-ml5px app-mr5px'>{initialPoints}</div>
-                    <div
-                        className='app-arrow-button app-arrow-button-right app-dimgray-border app-special-shadow'
-                        onClick={() => editPoints(initialPoints + 1)}
-                    />
+                <div className={styles['wipe-buttons-wrapper']}>
+                    <button type='button' className={appStyles.button} onClick={() => resetStatPoints()}>Сбросить статы</button>
+                    <button type='button' className={appStyles.button} onClick={() => restorePoints()}>Сбросить очки</button>
                 </div>
             </div>
         )

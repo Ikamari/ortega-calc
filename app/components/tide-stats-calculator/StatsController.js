@@ -2,7 +2,10 @@
 import React, { Component } from 'react'
 import PropTypes            from 'prop-types'
 // Components
-import StatElement          from './StatElement'
+import StatElement from './StatElement'
+// Styles
+import originalStyles from '../calculator/styles/stats-controller.css'
+import styles         from './styles/stats-controller.css'
 
 export default class TideStatsController extends Component {
 
@@ -49,9 +52,9 @@ export default class TideStatsController extends Component {
         const statuses = this.checkTideStats(this.getMaxTideStats())
 
         return (
-            <div className='app-tide-calc app-block-wrapper app-centered app-mt20px app-pl5px app-pr5px'>
-                <div className='app-centered-text app-text-bold app-mb10px app-mt10px'>{characteristics.label}</div>
-                <div className='app-block app-justified-content'>
+            <div className={originalStyles.wrapper}>
+                <div className={originalStyles.label}>{characteristics.label}</div>
+                <div className={originalStyles['stat-elements']}>
                     {Object.keys(characteristics.stats).map((name) => (
                         <StatElement
                             statName        = {name}
@@ -64,6 +67,7 @@ export default class TideStatsController extends Component {
                         />
                     ))}
                 </div>
+                <div className={styles.note}>Note: Зеленый цвет под потоком означает то, что он доминирующий</div>
             </div>
         )
     }

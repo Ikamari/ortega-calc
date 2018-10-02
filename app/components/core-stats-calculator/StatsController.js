@@ -4,9 +4,9 @@ import PropTypes            from 'prop-types'
 // Components
 import StatElement from './StatElement'
 // Styles
-import styles from './styles/stats-controller.css'
+import styles from '../calculator/styles/stats-controller.css'
 
-export default class StatsController extends Component {
+export default class CoreStatsController extends Component {
 
     render() {
         const { increment, decrement, characteristics, statsPoints } = this.props
@@ -32,7 +32,7 @@ export default class StatsController extends Component {
 
 }
 
-StatsController.propTypes = {
+CoreStatsController.propTypes = {
     increment:       PropTypes.func.isRequired,
     decrement:       PropTypes.func.isRequired,
     characteristics: PropTypes.object.isRequired,

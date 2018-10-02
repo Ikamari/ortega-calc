@@ -1,0 +1,21 @@
+.wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    align-items: center;
+    z-index: 1;
+}
+
+.amount-wrapper {
+    position: relative;
+    display: flex;
+    width: 135px;
+    height: 26px;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    background-color: black;
+    z-index: -2;
+    user-select: none;
+}

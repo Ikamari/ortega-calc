@@ -1,0 +1,40 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wipe-buttons-wrapper {
+    margin-top: 5px;
+}
+
+.wipe-buttons-wrapper button {
+    margin-left: 20px;
+}
+
+.wipe-buttons-wrapper button:first-child {
+    margin-left: 0px;
+}
+
+.points-change-wrapper, .available-points-wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 270px;
+    font-size: 18px;
+}
+
+.points-change-label, .available-points-label {
+    width: 200px;
+}
+
+.points-amount-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 70px;
+}
+
+.points-amount-wrapper button {
+    margin-top: 3px;
+}
