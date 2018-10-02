@@ -40,7 +40,7 @@ module.exports = {
                 options: {
                     name: '[name].[ext]',
                     outputPath: 'resources\/',
-                    publicPath: '\/resources\/'
+                    publicPath: 'resources\/'
                 }
             }
         ]
