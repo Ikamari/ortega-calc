@@ -9,8 +9,8 @@ module.exports = {
     watch: true,
     mode: "development",
     output: {
-        path: __dirname + '/public/js/',
-        filename: 'app.js'
+        path: __dirname + '/public',
+        filename: './js/app.js'
     },
     module: {
         rules: [
@@ -39,8 +39,8 @@ module.exports = {
                 loader: "file-loader",
                 options: {
                     name: '[name].[ext]',
-                    outputPath: 'resources\/',
-                    publicPath: 'resources\/'
+                    outputPath: './resources/',
+                    publicPath: './resources/'
                 }
             }
         ]
