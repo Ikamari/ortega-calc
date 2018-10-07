@@ -13,7 +13,7 @@
 }
 
 .wipe-buttons-wrapper button:first-child {
-    margin-left: 0px;
+    margin-left: 0;
 }
 
 .points-change-wrapper, .available-points-wrapper {

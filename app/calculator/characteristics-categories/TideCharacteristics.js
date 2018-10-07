@@ -16,44 +16,70 @@ export default {
         'red': {
             label: 'Красный',
             color: 'red',
-            tip:   'Красный'
+            tip:   'Красный',
+            group: 'emotions_and_mind'
         },
         'turquoise': {
             label: 'Бирюзовый',
             color: 'turquoise',
-            tip:   'Бирюзовый'
+            tip:   'Бирюзовый',
+            group: 'emotions_and_mind'
         },
         'indigo': {
             label: 'Индиго',
             color: 'indigo',
-            tip:   'Индиго'
+            tip:   'Индиго',
+            group: 'compromise_and_ultimatum'
         },
         'malachite': {
             label: 'Малахитовый',
             color: 'malachite',
-            tip:   'Малахитовый'
+            tip:   'Малахитовый',
+            group: 'compromise_and_ultimatum'
         },
         'gold': {
             label: 'Золотой',
             color: 'gold',
-            tip:   'Золотой'
+            tip:   'Золотой',
+            group: 'altruism_and_egoism'
         },
         'dark_blue': {
             label: 'Темно-синий',
             color: 'dark_blue',
-            tip:   'Темно-синий'
+            tip:   'Темно-синий',
+            group: 'altruism_and_egoism'
         },
         'silver': {
             label: 'Серебряный',
             color: 'silver',
-            tip:   'Серебряный'
+            tip:   'Серебряный',
+            group: 'glory_and_dishonor'
         },
         'carbonic': {
             label: 'Угольный',
             color: 'carbonic',
-            tip:   'Угольный'
+            tip:   'Угольный',
+            group: 'glory_and_dishonor'
         },
     },
+    groups: [
+        {
+            name: 'emotions_and_mind',
+            label: 'Эмоции и разум'
+        },
+        {
+            name: 'compromise_and_ultimatum',
+            label: 'Компромисс и ультиматум'
+        },
+        {
+            name: 'altruism_and_egoism',
+            label: 'Альтруизм и эгоизм'
+        },
+        {
+            name: 'glory_and_dishonor',
+            label: 'Слава и бесчестие'
+        }
+    ],
     renderPointsAsText: false,
     renderLabelAsRound: true,
     renderTips:         true

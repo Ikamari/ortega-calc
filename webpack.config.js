@@ -9,7 +9,7 @@ module.exports = {
     watch: true,
     mode: "development",
     output: {
-        path: __dirname + '/public/',
+        path: __dirname + '/public/js/',
         filename: 'app.js'
     },
     module: {

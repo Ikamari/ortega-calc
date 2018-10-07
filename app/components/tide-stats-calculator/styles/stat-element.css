@@ -1,4 +1,4 @@
-.status-round-active, .status-round-unactive {
+.status-round-active, .status-round-unactive, .status-round-error {
     position: relative;
     border: 8px solid transparent;
     border-radius: 32px;
@@ -10,7 +10,11 @@
     border-color: #0bda51!important;
 }
 
-.status-round-active::after, .status-round-unactive::after {
+.status-round-error {
+    border-color: red!important;
+}
+
+.status-round-active::after, .status-round-unactive::after, .status-round-error::after {
     content: '';
     position: absolute;
     display: block;

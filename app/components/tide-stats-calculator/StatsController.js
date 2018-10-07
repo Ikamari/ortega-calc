@@ -7,6 +7,12 @@ import StatElement from './StatElement'
 import originalStyles from '../calculator/styles/stats-controller.css'
 import styles         from './styles/stats-controller.css'
 
+const STATUS_NAMES = [
+    'unactive',
+    'active',
+    'error'
+]
+
 export default class TideStatsController extends Component {
 
     getMaxTideStats() {
@@ -27,7 +33,7 @@ export default class TideStatsController extends Component {
     }
 
     checkTideStats(maximums) {
-        const { statsPoints } = this.props
+        const { characteristics, statsPoints } = this.props
         let firstDominating = true, secondDominating = true
 
         const firstSpecialNum  = Math.round(statsPoints[maximums.firstMax]  - (statsPoints[maximums.firstMax] / 3)),
@@ -41,33 +47,51 @@ export default class TideStatsController extends Component {
             }
         })
 
+        let isIncompatible = false
+        if (firstDominating && secondDominating) {
+            isIncompatible = characteristics.stats[maximums.firstMax].group === characteristics.stats[maximums.secondMax].group
+        }
         return {
-            [maximums.firstMax]:  firstDominating  ? maximums.firstMax  : null,
-            [maximums.secondMax]: secondDominating ? maximums.secondMax : null
+            [maximums.firstMax]:  firstDominating  ? (isIncompatible ? 2 : 1) : 0,
+            [maximums.secondMax]: secondDominating ? (isIncompatible ? 2 : 1) : 0
         }
     }
 
     render() {
         const { increment, decrement, characteristics, statsPoints } = this.props
-        const statuses = this.checkTideStats(this.getMaxTideStats())
+        const tideStatuses = this.checkTideStats(this.getMaxTideStats())
 
         return (
             <div className={originalStyles.wrapper}>
                 <div className={originalStyles.label}>{characteristics.label}</div>
                 <div className={originalStyles['stat-elements']}>
-                    {Object.keys(characteristics.stats).map((name) => (
-                        <StatElement
-                            statName        = {name}
-                            statPoints      = {statsPoints[name]}
-                            characteristics = {characteristics}
-                            increment       = {increment}
-                            decrement       = {decrement}
-                            key             = {`${characteristics.name}-calc-${name}-stat`}
-                            status          = {statuses[name] ? 'active' : 'unactive'}
-                        />
+                    {characteristics.groups.map((data) => (
+                        <div className={styles['stat-elements-group']} key={`${characteristics.name}-calc-${data.name}-group`}>
+                            <div className={styles['stat-elements-group-label']}>{data.label}</div>
+                            <div className={styles['stat-elements-group-elements']}>
+                            {Object.keys(characteristics.stats).map((name) => {
+                                if (characteristics.stats[name].group === data.name) {
+                                    return (
+                                        <StatElement
+                                            statName={name}
+                                            statPoints={statsPoints[name]}
+                                            characteristics={characteristics}
+                                            increment={increment}
+                                            decrement={decrement}
+                                            key={`${characteristics.name}-calc-${name}-stat`}
+                                            status={tideStatuses[name] ? STATUS_NAMES[tideStatuses[name]]: 'unactive'}
+                                        />
+                                    )
+                                }
+                            })}
+                            </div>
+                        </div>
                     ))}
                 </div>
-                <div className={styles.note}>Note: Зеленый цвет под потоком означает то, что он доминирующий</div>
+                <div className={styles.note}>
+                    <div>* Зеленый цвет под потоком означает то, что он доминирующий</div>
+                    <div>* Красный цвет под парой потоков означает то, что они не могут быть оба доминирующими</div>
+                </div>
             </div>
         )
     }
