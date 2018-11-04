@@ -71,5 +71,5 @@
     font-family: Digital2, sans-serif;
     font-size: 26px;
     color: skyblue;
-    text-shadow: 0px 0px 10px blue;
+    text-shadow: 0 0 10px blue, 0 0 5px blue;
 }
